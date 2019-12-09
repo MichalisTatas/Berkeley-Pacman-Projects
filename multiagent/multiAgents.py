@@ -285,10 +285,7 @@ def betterEvaluationFunction(currentGameState):
       return float("inf")
     if newFood.asList():
       closestFood = min(util.manhattanDistance(newPos, food) for food in newFood.asList())
-  
-    # if currentGameState.getCapsules():  
-    #   closestCapsule = min(util.manhattanDistance(newPos, capsule) for capsule in util.manhattanDistance(newPos, capsule))
-
+      
     ghostEvaluation = 0
     if newGhostStates:  
       for ghost in newGhostStates:
@@ -299,7 +296,7 @@ def betterEvaluationFunction(currentGameState):
           else:
             ghostEvaluation -= 10.0
     
-        
+      
     return currentGameState.getScore() + 10.0/closestFood + ghostEvaluation 
 
 # Abbreviation
